@@ -1,0 +1,142 @@
+<mvc:View controllerName="project3.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:filterbar="sap.ui.comp.filterbar"
+    xmlns:c="sap.ui.core">
+    <Page id="page" title="Meine Projektbedarfe">
+        <content>
+            <VBox>
+                <VBox>
+                    <!-- FilterBar -->
+                    <filterbar:FilterBar id="filterBar"
+                        showClearOnFB="true"
+                        search="onSearch"
+                        clear="onClear">
+                        <filterbar:filterGroupItems>
+                            <filterbar:FilterGroupItem groupName="SearchGroup"
+                                name="PW Nummer"
+                                label="PW Nummer"
+                                visibleInFilterBar="true">
+                                <filterbar:control>
+                                    <Input id="pwNumberInput" submit="onInputSubmit"/>
+                                </filterbar:control>
+                            </filterbar:FilterGroupItem>
+                            <filterbar:FilterGroupItem groupName="SearchGroup"
+                                name="Status"
+                                label="Status"
+                                visibleInFilterBar="true">
+                                <filterbar:control>
+                                    <Input id="statusInput" submit="onInputSubmit"/>
+                                </filterbar:control>
+                            </filterbar:FilterGroupItem>
+                            <filterbar:FilterGroupItem groupName="SearchGroup"
+                                name="Planungnummer"
+                                label="Planungnummer"
+                                visibleInFilterBar="true">
+                                <filterbar:control>
+                                    <Input id="planungnummerInput" submit="onInputSubmit"/>
+                                </filterbar:control>
+                            </filterbar:FilterGroupItem>
+                            <filterbar:FilterGroupItem groupName="SearchGroup"
+                                name="Verwendungszweck"
+                                label="Verwendungszweck/Titel des Antrachs"
+                                visibleInFilterBar="true">
+                                <filterbar:control>
+                                    <Input id="verwendungszweckInput" submit="onInputSubmit"/>
+                                </filterbar:control>
+                            </filterbar:FilterGroupItem>
+                            <filterbar:FilterGroupItem groupName="SearchGroup"
+                                name="Projektnummer"
+                                label="Projektnummer"
+                                visibleInFilterBar="true">
+                                <filterbar:control>
+                                    <Input id="projektnummerInput" submit="onInputSubmit"/>
+                                </filterbar:control>
+                            </filterbar:FilterGroupItem>
+                            <filterbar:FilterGroupItem groupName="SearchGroup"
+                                name="Ersteller"
+                                label="Ersteller"
+                                visibleInFilterBar="true">
+                                <filterbar:control>
+                                    <Input id="erstellerInput" submit="onInputSubmit"/>
+                                </filterbar:control>
+                            </filterbar:FilterGroupItem>
+                            <filterbar:FilterGroupItem groupName="SearchGroup"
+                                name="Verwender"
+                                label="Verwender"
+                                visibleInFilterBar="true">
+                                <filterbar:control>
+                                    <Input id="verwenderInput" submit="onInputSubmit"/>
+                                </filterbar:control>
+                            </filterbar:FilterGroupItem>
+                            <filterbar:FilterGroupItem groupName="SearchGroup"
+                                name="Erstelldatum"
+                                label="Erstelldatum"
+                                visibleInFilterBar="true">
+                                <filterbar:control>
+                                    <DatePicker id="datePicker" valueFormat="yyyy-MM-dd" displayFormat="dd.MM.yyyy"/>
+                                </filterbar:control>
+                            </filterbar:FilterGroupItem>
+                        </filterbar:filterGroupItems>
+                    </filterbar:FilterBar>
+
+                    <!-- Row Selector  IMPLEMENT FUNCTIONALITY-->
+                    <HBox justifyContent="End">
+                        <Select id="rowSelector" change="onRowLimitChange" class="sapUiSmallMarginEnd" selectedKey="10">
+                            <c:ListItem key="10" text="10"/>
+                            <c:ListItem key="50" text="50"/>
+                            <c:ListItem key="100" text="100"/>
+                        </Select>
+                    </HBox>
+                </VBox>
+
+                <!-- Data Table -->
+                <Table id="dataTable"
+                    items="{applicationModel>/HeaderSet}">
+                    <columns>
+                        <Column>
+                            <Label text="PW Nummer"/>
+                        </Column>
+                        <Column>
+                            <Label text="Status"/>
+                        </Column>
+                        <Column>
+                            <Label text="Planungsnummer"/>
+                        </Column>
+                        <Column>
+                            <Label text="Verwendungszweck/Titel des Antrachs"/>
+                        </Column>
+                        <Column>
+                            <Label text="Projektnummer"/>
+                        </Column>
+                        <Column>
+                            <Label text="Ersteller"/>
+                        </Column>
+                        <Column>
+                            <Label text="Verwender"/>
+                        </Column>
+                        <Column>
+                            <Label text="Erstelldatum"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem
+                            type="Active"
+                            press="onItemPressClick"> 
+                            <cells>
+                                <Text text="{applicationModel>PW_NR}"/>
+                                <Text text="{applicationModel>TD_BBA_STATUS}"/>
+                                <Text text="{applicationModel>BT_NR}"/>
+                                <Text text="{applicationModel>VRWNG_AUSL}"/>
+                                <Text text="{applicationModel>Derivate_ConstructionSet_Project}"/>
+                                <Text text="{parts: [{path: 'applicationModel>Creator_FirstName'}, {path: 'applicationModel>Creator_LastName'}, {path: 'applicationModel>Creator_Department'}], formatter: '.formatCreator'}"/>
+                                <Text text="{parts: [{path: 'applicationModel>User_FirstName'}, {path: 'applicationModel>User_LastName'}, {path: 'applicationModel>User_Department'}], formatter: '.formatUser'}"/>
+                                <Text text="{path: 'applicationModel>CREATED_ON', formatter: '.formatDate'}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

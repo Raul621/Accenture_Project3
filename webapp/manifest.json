@@ -1,0 +1,128 @@
+{
+  "_version": "1.17.0",
+  "sap.app": {
+    "id": "project3",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.14.1",
+      "toolsId": "9fa7972c-5a94-4a82-b6d3-3d9ae9e0059c"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.71.61",
+      "libs": {
+        "sap.m": {},
+        "sap.uxap":{},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "project3.i18n.i18n",
+          "fallbackLocale": "en",
+          "supportedLocales": [
+            "en",
+            "de"
+          ]
+        }
+      },
+      "applicationModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "preload": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "project3.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteView1",
+          "pattern": "",
+          "target": [
+            "TargetView1"
+          ]
+        },
+        {
+          "name": "RoutePwDetails",
+          "pattern": "PwDetails/ANR_KOP={ANR_KOP}&PW_NR={PW_NR}&OID_KOP={OID_KOP}",
+          "target": [
+            "TargetPwDetails"
+          ]
+        }
+      ],
+      "targets": {
+      "TargetView1": {
+        "viewType": "XML",
+        "transition": "slide",
+        "viewName": "View1",
+        "clearControlAggregation": false
+      },
+      "TargetPwDetails": {
+      "viewType": "XML",
+      "transition": "slide",
+      "viewName": "PwDetails",
+      "clearControlAggregation": false
+    }
+      }
+    },
+    "rootView": {
+      "viewName": "project3.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

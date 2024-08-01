@@ -1,0 +1,77 @@
+<mvc:View controllerName="project3.controller.PwDetails"
+    xmlns:mvc="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:uxap="sap.uxap">
+    
+    <Page showNavButton="true" navButtonPress="onNavBack">
+        <uxap:ObjectPageLayout id="objectPageLayout">
+            <uxap:headerContent>
+                <FlexBox direction="Column">
+                    <!-- Auslösen and PW_NR -->
+                    <HBox>
+                        <Label text="Auslösenummer:" />
+                        <Text text="{applicationModel>/Header/PW_NR}" />
+                    </HBox>
+                    
+                    <!-- Field 3: Another example field -->
+                    <HBox>
+                        <Label text="Erstelldatum:" />
+                        <Text text="{path: 'applicationModel>/Header/CREATED_ON', formatter: '.formatDate'}" />
+                    </HBox>
+                </FlexBox>
+            </uxap:headerContent>
+            <uxap:sections>
+                <!-- Existing Section -->
+                <uxap:ObjectPageSection id="generalDataSection" title="{i18n>txt.general_data}">
+                    <uxap:ObjectPageSubSection>
+                        <Panel expandable="true" expanded="true">
+                            <headerToolbar>
+                                <OverflowToolbar height="3rem">
+                                    <Title text="{i18n>text.projektbedarf}" id="titleHeaderDetails"/>
+                                    <ToolbarSpacer />
+                                    <Button id="editDataBtn"
+                                        visible="true"
+                                        enabled="{applicationModel>/bEnabledChangeHeader}"
+                                        icon="sap-icon://edit"
+                                        press="onPressEditPwHeader"
+                                        type="Ghost">
+                                    </Button>
+                                    <Button id="saveDataBtn"
+                                        icon="sap-icon://save"
+                                        visible="false"
+                                        press="onPressUpdatePwHeader"
+                                        type="Ghost">
+                                    </Button>
+                                    <Button id="discardDataBtn"
+                                        icon="sap-icon://cancel"
+                                        visible="false"
+                                        press="onPressDiscardChanges"
+                                        type="Ghost">
+                                    </Button>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <content>
+                                <mvc:Fragment fragmentName="project3.view.GeneralDataReadOnly" type="XML" />
+                            </content>
+                        </Panel>
+                    </uxap:ObjectPageSubSection>
+                </uxap:ObjectPageSection>
+
+                <!-- New Section: Positions -->
+                <uxap:ObjectPageSection id="positionsSection" title="{i18n>txt.positionen}">
+                    <uxap:ObjectPageSubSection>
+                        <Panel expandable="true" expanded="false"> <!-- Ensure initially collapsed -->
+                            <content>
+                                <List items="{applicationModel>/PositionSet}">
+                                    <StandardListItem title="{applicationModel>PositionName}" description="{applicationModel>PositionDescription}" />
+                                </List>
+                            </content>
+                        </Panel>
+                    </uxap:ObjectPageSubSection>
+                </uxap:ObjectPageSection>
+                
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+    </Page>
+</mvc:View>

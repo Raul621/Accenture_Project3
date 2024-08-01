@@ -1,0 +1,253 @@
+<c:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+>
+    <form:SimpleForm
+    id="generalDataSimpleForm"
+    editable="true"
+    layout="ResponsiveGridLayout"
+    columnsXL="3"
+    columnsL="3"
+    columnsM="3"
+    emptySpanXL="0">
+
+    <!-- General -->
+    <c:Title text="Allgemeine Daten" />
+
+    <Label text="{i18n>lbl.verwendungszweck}" required="true"/>
+    <Text id="textStandortAnlieferung"
+        text="{applicationModel>/Header/VRWNG_AUSL}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>txt.standort_anlieferung}" required="true"/>
+    <Text id="textDerivate"
+        text="{applicationModel>/Header/PROD_KATE}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>lbl.derivate_baukasten_project}" required="true"/>
+    <Text id="textBuildPhase"
+        text="{applicationModel>/Header/Derivate_ConstructionSet_Project}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>lbl.build_phase}" required="true"/>
+    <Text id="textVerwendungszweck"
+        text="{applicationModel>/Header/BAUPHASE}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>lbl.abweichende}" required="true"/>
+    <Text id="textabweichende"
+        text="{applicationModel>/Header/KOSTL}"
+        editable="true" />
+
+    <Label text="{i18n>lbl.at_art}" />
+    <Text id="textat_art"
+        text="{applicationModel>/Header/AtArt}"
+        editable="true" />
+
+    <Label text="{i18n>lbl.verwendervermerk}" />
+    <Text id="textverwendervermerk"
+        text="{applicationModel>/Header/ERGSTORT}"
+        editable="true" />
+
+
+    <!-- Additional -->
+    <c:Title text="" />
+
+    <Label text="{i18n>lbl8.wizard1.step12}" />
+    <Text id="textstep12"
+        text="{applicationModel>/Header/ERGSTORT}"
+        editable="true" />
+
+    <Label text="{i18n>lbl.b-termin}" required="true"/>
+    <Text id="textBtermin"
+        text="{path: 'applicationModel>/Header/BOTERMIN', formatter: '.formatDate'}"
+        editable="true" />
+
+    <c:Title text="" />
+
+
+    <!-- Ersteller -->
+    <c:Title text="{i18n>text.ersteller}" />
+
+    <Label text="{i18n>text.qx}" required="true" />
+    <Text id="textErstellerQx"
+        text="{applicationModel>/Header/Creator_QX}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>text.lastname}" />
+    <Text id="textErstellerLastname"
+        text="{applicationModel>/Header/Creator_FirstName}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>text.firstname}" />
+    <Text id="textErstellerFirstname"
+        text="{applicationModel>/Header/Creator_LastName}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>text.fachbereich}" />
+    <Text id="textErstellerFachbereich"
+        text="{applicationModel>/Header/Creator_Department}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>text.email}" />
+    <Text id="textErstellerEmail"
+        text="{applicationModel>/Header/Creator_EmailAddress}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <!-- Verwender -->
+    <c:Title text="{i18n>text.verwender}" />
+
+    <Label text="{i18n>text.qx}" required="true" />
+    <Text id="textVerwenderQx"
+        text="{applicationModel>/Header/User_QX}"
+        editable="{applicationModel>/enableSummaryFields}" />
+
+    <Label text="{i18n>text.lastname}" />
+    <Text id="textVerwenderLastname"
+        text="{applicationModel>/Header/User_FirstName}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>text.firstname}" />
+    <Text id="textVerwenderFirstname"
+        text="{applicationModel>/Header/User_LastName}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>text.fachbereich}" />
+    <Text id="textVerwenderFachbereich"
+        text="{applicationModel>/Header/User_Department}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>text.email}" />
+    <Text id="textVerwenderEmail"
+        text="{applicationModel>/Header/User_EmailAddress}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <!-- Abgestimmt -->
+    <c:Title text="{i18n>text.abgestimmt}" />
+
+    <Label text="{i18n>text.qx}" required="true" />
+    <Text id="textAbgestimmtQx"
+        text="{applicationModel>/Header/Additional_recipient_QX}"
+        editable="{applicationModel>/enableSummaryFields}" />
+
+    <Label text="{i18n>text.lastname}" />
+    <Text id="textAbgestimmtLastname"
+        text="{applicationModel>/Header/Additional_recipient_FirstName}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>text.firstname}" />
+    <Text id="textAbgestimmtFirstname"
+        text="{applicationModel>/Header/Additional_recipient_LastName}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>text.fachbereich}" />
+    <Text id="textAbgestimmtFachbereich"
+        text="{applicationModel>/Header/Additional_recipient_Department}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>text.email}" />
+    <Text id="textAbgestimmtEmail"
+        text="{applicationModel>/Header/Additional_recipient_EmailAddress}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <!-- Internal Receiver -->
+    <c:Title text="{i18n>text1Form.wizard1.step9}"  />
+
+    <Label text="{i18n>text.qx}" />
+    <Text id="textInternalReceiverQx"
+        text="{applicationModel>/Header/Internal_receiver_QX}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>text.firstname}" />
+    <Text id="textInternalReceiverFirstname"
+        text="{applicationModel>/Header/Internal_receiver_LastName}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+        
+
+    <Label text="{i18n>text.lastname}" />
+    <Text id="textInternalReceiverLastname"
+        text="{applicationModel>/Header/Internal_receiver_FirstName}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    
+    <Label text="{i18n>text.fachbereich}" />
+    <Text id="textInternalReceiverFachbereich"
+        text="{applicationModel>/Header/Internal_receiver_Department}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>text.email}" />
+    <Text id="textInternalReceiverEmail"
+        text="{applicationModel>/Header/Internal_receiver_EmailAddress}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>text.phone}" />
+    <Text id="textInternalReceiverPhone"
+        text="{applicationModel>/Header/Internal_receiver_Phone}"
+        editable="{applicationModel>/enabledBmwReceiverInputs}" />
+
+    <Label text="{i18n>text.bauort}" />
+    <Text id="textInternalReceiverBauort"
+        text="{applicationModel>/Header/Internal_receiver_ConstructionSite}"
+        editable="{applicationModel>/enabledBmwReceiverInputs}" />
+
+    <Label text="{i18n>text.standort}" />
+    <Text id="textInternalReceiverStandort"
+        text="{applicationModel>/Header/Internal_receiver_LocationPart}"
+        editable="{applicationModel>/enabledBmwReceiverInputs}" />
+
+    <Label text="{i18n>text.building}" />
+    <Text id="textInternalReceiverBuilding"
+        text="{applicationModel>/Header/Internal_receiver_Building}"
+        editable="{applicationModel>/enabledBmwReceiverInputs}" />
+
+    <Label text="{i18n>text.room_number}" />
+    <Text id="textInternalReceiverRoomNumber"
+        text="{applicationModel>/Header/Internal_receiver_RoomNumber}"
+        editable="{applicationModel>/enabledBmwReceiverInputs}" />
+
+    <Label text="{i18n>text.debitorennummer}" />
+    <Text id="textInternalReceiverDebitorenNr"
+        text="{applicationModel>/Header/Internal_receiver_Sup_Cust_nr}"
+        editable="false" />
+
+
+    <!-- External Receiver -->
+    <c:Title text="{i18n>text2Form.wizard1.step9}" />
+
+    <Label text="{i18n>text.supplier}" required="true"/>
+    <Text id="textExternalReceiverQx"
+        text="{applicationModel>/Header/External_receiver_ID}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>text.company}" />
+    <Text id="textExternalReceiverFirstname"
+        text="{applicationModel>/Header/External_receiver_Name}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+        
+
+    <Label text="{i18n>text.street}" />
+    <Text id="textExternalReceiverLastname"
+        text="{applicationModel>/Header/External_receiver_Address}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    
+    <Label text="{i18n>text.country_zip_place}" />
+    <Text id="textExternalReceiverFachbereich"
+        text="{applicationModel>/Header/External_receiver_Place}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>text.contact}" />
+    <Text id="textExternalReceiverEmail"
+        text="{applicationModel>/Header/Internal_receiver_EmailAddress}"
+        editable="{applicationModel>/bNotEditableGeneralFields}" />
+
+    <Label text="{i18n>text.phone}" />
+    <Text id="textExternalReceiverPhone"
+        text="{applicationModel>/Header/Internal_receiver_Phone}"
+        editable="{applicationModel>/enabledBmwReceiverInputs}" />
+
+    </form:SimpleForm>
+
+
+</c:FragmentDefinition>
